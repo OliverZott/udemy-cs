@@ -3,7 +3,7 @@
 namespace IntroductionToOop.Characters.Meele
 
 {
-    class Worrior
+    class Warrior
     {
         // Fields
         public readonly string name;
@@ -19,16 +19,14 @@ namespace IntroductionToOop.Characters.Meele
         {
             get
             {
-                return damage;
+                return this.damage;
             }
             set
             {
-                damage = value;
+                this.damage = value;
             }
         }
         public Axe Weapon { get; set; }
-
-
         public int Level
         {
             get { return level; }
@@ -48,7 +46,13 @@ namespace IntroductionToOop.Characters.Meele
 
 
         // Constructor
-        public Worrior(string name, int healthpoints, int damage)
+
+        public Warrior(string name)
+            : this(name, 100, 10)
+        {
+        }
+
+        public Warrior(string name, int healthpoints, int damage)
         {
             this.name = name;
             HealthPoints = healthpoints;
@@ -56,12 +60,14 @@ namespace IntroductionToOop.Characters.Meele
         }
 
 
+        // PROPERTY or FIELD ??
         public void Greet(string name)
         {
+            System.Console.WriteLine($"{this.name} says \"Hello\" to {name}");
             System.Console.WriteLine($"{Name} says \"Hello\" to {name}");
         }
 
-        public void Attack(Worrior enemy)
+        public void Attack(Warrior enemy)
         {
             enemy.HealthPoints -= Damage;
             System.Console.WriteLine($"{Name} attacks {enemy.name} ({enemy.HealthPoints} health points left) ");

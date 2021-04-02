@@ -7,13 +7,15 @@ namespace IntroductionToOop
     {
         static void Main(string[] args)
         {
-            Worrior druid = new Worrior("Bob The Druid", 100, 5);
-            Worrior berserker = new("John The Berserker", 150, 10);
+            Warrior druid = new Warrior("Bob The Druid", 100, 5);
+            Warrior berserker = new("John The Berserker", 150, 10);
+            // usage of chained constructor
+            Warrior Sam = new("Sam");
 
             Axe axe = new();
             druid.Weapon = axe;
             druid.Name = "Blob";
-            berserker.Level = 200;
+            // berserker.Level = 200;
 
             System.Console.WriteLine("Berserker Level: {0}", arg0: berserker.Level);
 
