@@ -3,7 +3,7 @@
 namespace IntroductionToOop.Characters.Meele
 
 {
-    class Warrior
+    public class Warrior
     {
         // Fields
         public readonly string name;
