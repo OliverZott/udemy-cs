@@ -1,6 +1,6 @@
 ﻿namespace IntroductionToOop.Weapons.Sharp
 {
-    class Axe
+    public class Axe
     {
 
         public int Damage { get; set; }

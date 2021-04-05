@@ -5,12 +5,14 @@ namespace IntroductionToOop.Characters.Meele
 {
     public class Warrior
     {
+
+        private static int idCounter;
+
         // Fields
         public readonly string name;
         private int damage;
         private Axe weapon;
         private int level;
-
 
         // Properties
         public string Name { get; set; }
@@ -43,21 +45,41 @@ namespace IntroductionToOop.Characters.Meele
                 }
             }
         }
+        public static int IdCounter
+        {
+            get
+            {
+                return idCounter;
+            }
+            private set
+            {
+                idCounter = value;
+            }
+        }
 
 
         // Constructor
-
         public Warrior(string name)
             : this(name, 100, 10)
         {
         }
 
+
+        // Use property of idcounter in constructor due to consistency 
         public Warrior(string name, int healthpoints, int damage)
         {
-            this.name = name;
+            this.Name = name;
             HealthPoints = healthpoints;
             this.Damage = damage;
+            Warrior.IdCounter++;
         }
+
+        public override string ToString()
+        {
+            return base.ToString() + " - Id: " + idCounter + " / Name: " + this.Name + ".";
+        }
+
+
 
 
         // PROPERTY or FIELD ??
@@ -77,5 +99,7 @@ namespace IntroductionToOop.Characters.Meele
         {
             throw new System.NotImplementedException();
         }
+
+
     }
 }

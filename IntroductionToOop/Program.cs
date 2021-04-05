@@ -8,9 +8,13 @@ namespace IntroductionToOop
         static void Main(string[] args)
         {
             Warrior druid = new Warrior("Bob The Druid", 100, 5);
+            System.Console.WriteLine(druid);
             Warrior berserker = new("John The Berserker", 150, 10);
+            System.Console.WriteLine(berserker);
             // usage of chained constructor
             Warrior Sam = new("Sam");
+            System.Console.WriteLine(Warrior.IdCounter);
+
 
             Axe axe = new();
             druid.Weapon = axe;
