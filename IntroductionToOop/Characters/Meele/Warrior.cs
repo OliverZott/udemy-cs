@@ -6,13 +6,17 @@ namespace IntroductionToOop.Characters.Meele
     public class Warrior
     {
 
-        private static int idCounter;
+        private readonly int id;
+
+        private const int DEFAULT_DAMAGE = 10;
+        private const int DEFAULT_HEALTHPOINTS = 100;
 
         // Fields
         public readonly string name;
         private int damage;
         private Axe weapon;
         private int level;
+        private static int idCounter;
 
         // Properties
         public string Name { get; set; }
@@ -56,27 +60,34 @@ namespace IntroductionToOop.Characters.Meele
                 idCounter = value;
             }
         }
+        public int Id
+        {
+            get { return id; }
+            // set { id = value; }  // readonly field cannot be set from outside, only directly on field in class!
+        }
+
 
 
         // Constructor
         public Warrior(string name)
-            : this(name, 100, 10)
+            : this(name, DEFAULT_HEALTHPOINTS, DEFAULT_DAMAGE)
         {
         }
 
 
-        // Use property of idcounter in constructor due to consistency 
+        // Use property of idcounter in constructor due to consistency
         public Warrior(string name, int healthpoints, int damage)
         {
             this.Name = name;
             HealthPoints = healthpoints;
             this.Damage = damage;
             Warrior.IdCounter++;
+            this.id = IdCounter;
         }
 
         public override string ToString()
         {
-            return base.ToString() + " - Id: " + idCounter + " / Name: " + this.Name + ".";
+            return base.ToString() + " - Id: " + id + " / Name: " + this.Name + " (IdCounter: " + IdCounter + ").";
         }
 
 
@@ -100,6 +111,15 @@ namespace IntroductionToOop.Characters.Meele
             throw new System.NotImplementedException();
         }
 
+        public static void GetAllDefaultInfromation()
+        {
+            System.Console.WriteLine($"Const constants: \n1.DEFAULT_HEALTHPOINTS={DEFAULT_HEALTHPOINTS}, \n2.DEFAULT_DAMAGE={DEFAULT_DAMAGE}");
+        }
+
+        public static void GetAllReadOnlyConstants(Warrior warrior)
+        {
+            System.Console.WriteLine($"Read-only constant: id={warrior.id}");
+        }
 
     }
 }
