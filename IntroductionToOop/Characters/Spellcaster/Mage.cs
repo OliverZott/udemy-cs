@@ -1,9 +1,8 @@
 ﻿using IntroductionToOop.Enumerations;
 
-namespace IntroductionToOop.Characters.Meele
-
+namespace IntroductionToOop.Characters.Spellcaster
 {
-    public class Warrior : Character
+    class Mage : Character
     {
 
         private const int DEFAULT_DAMAGE = 10;
@@ -13,18 +12,18 @@ namespace IntroductionToOop.Characters.Meele
 
 
         // Constructor
-        public Warrior(string name)
+        public Mage(string name)
             : this(name, DEFAULT_HEALTHPOINTS, DEFAULT_DAMAGE, Faction.GoodGuy)
         {
         }
 
-        public Warrior(string name, int healthpoints, int damage, Faction faction)
+        public Mage(string name, int healthpoints, int damage, Faction faction)
         {
             this.Name = name;
             HealthPoints = healthpoints;
             this.Damage = damage;
             this.Faction = faction;
-            Warrior.IdCounter++;
+            Mage.IdCounter++;
             this.id = IdCounter;
 
             switch (faction)
@@ -84,4 +83,6 @@ namespace IntroductionToOop.Characters.Meele
         }
 
     }
+
+}
 }

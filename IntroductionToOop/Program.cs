@@ -1,6 +1,4 @@
 ﻿using IntroductionToOop.Characters.Meele;
-using IntroductionToOop.Weapons.Sharp;
-using System;
 
 namespace IntroductionToOop
 {
@@ -9,6 +7,13 @@ namespace IntroductionToOop
         static void Main(string[] args)
         {
 
+            Warrior goodGuy = new Warrior("Bob The Druid", 100, 5, Enumerations.Faction.GoodGuy);
+            Warrior badGuy = new Warrior("Bob The Druid", 100, 5, Enumerations.Faction.BadGuy);
+
+            System.Console.WriteLine(goodGuy.Level);
+            System.Console.WriteLine(badGuy.Level);
+
+            /*
             // static method
             Warrior.GetAllDefaultInfromation();
 
@@ -20,7 +25,7 @@ namespace IntroductionToOop
 
             // Check Id and IdCOunter 
             Tools.ColorfulWriteLine(druid.ToString(), ConsoleColor.Blue);
-            Tools.ColorfulWriteLine(berserker.ToString(), ConsoleColor.Blue);
+            Tools.ColorfulWriteLine(berserer.ToString(), ConsoleColor.Blue);
             System.Console.WriteLine("Property in Warrior-Class to retrieve Id: " + druid.Id);
 
             Axe axe = new();
@@ -35,6 +40,7 @@ namespace IntroductionToOop
 
             druid.Greet(berserker.Name);
             berserker.Attack(druid);
+            */
 
         }
     }
