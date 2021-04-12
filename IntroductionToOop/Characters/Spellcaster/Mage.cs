@@ -1,4 +1,5 @@
-﻿using IntroductionToOop.Enumerations;
+﻿using IntroductionToOop.Characters.Meele;
+using IntroductionToOop.Enumerations;
 
 namespace IntroductionToOop.Characters.Spellcaster
 {
@@ -18,6 +19,7 @@ namespace IntroductionToOop.Characters.Spellcaster
         }
 
         public Mage(string name, int healthpoints, int damage, Faction faction)
+            : base(name)
         {
             this.Name = name;
             HealthPoints = healthpoints;
@@ -84,5 +86,4 @@ namespace IntroductionToOop.Characters.Spellcaster
 
     }
 
-}
 }

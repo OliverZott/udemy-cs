@@ -1,13 +1,11 @@
 ﻿using IntroductionToOop.Enumerations;
 using IntroductionToOop.Weapons.Sharp;
+using System.Threading;
 
 namespace IntroductionToOop.Characters
 {
     public class Character
     {
-        // Constants
-        private const int DEFAULT_DAMAGE = 10;
-        private const int DEFAULT_HEALTHPOINTS = 100;
 
         // Fields
         public readonly string name;
@@ -17,6 +15,14 @@ namespace IntroductionToOop.Characters
         private Sword weapon;
         private int level;
         private Faction faction;
+
+
+        public Character(string name)
+        {
+            this.Name = name;
+            System.Console.WriteLine("This is the 'Character-BaseClass' Constructor");
+        }
+
 
         // Properties
         public string Name { get; set; }
@@ -71,5 +77,17 @@ namespace IntroductionToOop.Characters
                 this.faction = value;
             }
         }
+
+        // Methods
+        public virtual void MoveChar(int speed)
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                System.Console.WriteLine("I'm moving!");
+                Thread.Sleep(speed);
+            }
+        }
+
     }
+
 }

@@ -8,6 +8,7 @@ namespace IntroductionToOop.Characters.Meele
 
         private const int DEFAULT_DAMAGE = 10;
         private const int DEFAULT_HEALTHPOINTS = 100;
+        private const int DEFAULT_SPEED = 1000;
 
         public readonly int id;
 
@@ -16,24 +17,28 @@ namespace IntroductionToOop.Characters.Meele
         public Warrior(string name)
             : this(name, DEFAULT_HEALTHPOINTS, DEFAULT_DAMAGE, Faction.GoodGuy)
         {
+            System.Console.WriteLine("This is the 'Warrior-ChildClass' ConstructorlLevel-2");
         }
 
+        // uses base class 'Character'
         public Warrior(string name, int healthpoints, int damage, Faction faction)
+            : base(name)
         {
-            this.Name = name;
             HealthPoints = healthpoints;
             this.Damage = damage;
-            this.Faction = faction;
+            base.Faction = faction;
             Warrior.IdCounter++;
             this.id = IdCounter;
+
+            System.Console.WriteLine("This is the 'Warrior-ChildClass' ConstructorlLevel-1");
 
             switch (faction)
             {
                 case Faction.GoodGuy:
-                    this.Level = 1;
+                    Level = 1;
                     break;
                 case Faction.BadGuy:
-                    this.Level = 2;
+                    base.Level = 2;
                     break;
                 default:
                     break;
@@ -60,6 +65,12 @@ namespace IntroductionToOop.Characters.Meele
         {
             System.Console.WriteLine($"{this.name} says \"Hello\" to {name}");
             System.Console.WriteLine($"{Name} says \"Hello\" to {name}");         // PROPERTY or FIELD ??
+        }
+
+        public override void MoveChar(int speed = DEFAULT_SPEED)
+        {
+            System.Console.WriteLine($"Hello, it's {this.Name}");
+            base.MoveChar(speed);
         }
 
         public void Attack(Warrior enemy)

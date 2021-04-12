@@ -7,11 +7,13 @@ namespace IntroductionToOop
         static void Main(string[] args)
         {
 
-            Warrior goodGuy = new Warrior("Bob The Druid", 100, 5, Enumerations.Faction.GoodGuy);
-            Warrior badGuy = new Warrior("Bob The Druid", 100, 5, Enumerations.Faction.BadGuy);
+            Warrior goodGuy = new Warrior("Bob the good guy", 100, 5, Enumerations.Faction.GoodGuy);
+            Warrior badGuy = new Warrior("John the bad warrior", 100, 5, Enumerations.Faction.BadGuy);
 
             System.Console.WriteLine(goodGuy.Level);
-            System.Console.WriteLine(badGuy.Level);
+            badGuy.MoveChar(200);
+            goodGuy.MoveChar();
+
 
             /*
             // static method
