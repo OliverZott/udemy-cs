@@ -1,9 +1,10 @@
-﻿using IntroductionToOop.Characters.Meele;
+﻿using IntroductionToOop.Characters.Interfaces;
+using IntroductionToOop.Characters.Meele;
 using IntroductionToOop.Enumerations;
 
 namespace IntroductionToOop.Characters.Spellcaster
 {
-    class Mage : Character
+    class Mage : Character, ISpellcaster
     {
 
         private const int DEFAULT_DAMAGE = 10;
@@ -50,6 +51,7 @@ namespace IntroductionToOop.Characters.Spellcaster
             // set { id = value; }  // read-only field cannot be set from outside, only directly on field in class!
         }
 
+        public int ManaPoints { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
 
         public override string ToString()
         {
@@ -84,6 +86,10 @@ namespace IntroductionToOop.Characters.Spellcaster
             System.Console.WriteLine($"Read-only constant: id={warrior.id}");
         }
 
+        public void SpellCast()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 
 }

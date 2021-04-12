@@ -1,9 +1,10 @@
-﻿using IntroductionToOop.Enumerations;
+﻿using IntroductionToOop.Characters.Interfaces;
+using IntroductionToOop.Enumerations;
 
 namespace IntroductionToOop.Characters.Meele
 
 {
-    public class Warrior : Character
+    public class Warrior : Character, IDoMath
     {
 
         private const int DEFAULT_DAMAGE = 10;
@@ -11,6 +12,8 @@ namespace IntroductionToOop.Characters.Meele
         private const int DEFAULT_SPEED = 1000;
 
         public readonly int id;
+        private int numberA;
+        private int numberB;
 
 
         // Constructor
@@ -68,6 +71,10 @@ namespace IntroductionToOop.Characters.Meele
             }
         }
 
+        public int NumberA { get => this.numberA; set => this.numberA = value; }
+        public int NumberB { get => this.numberB; set => this.numberB = value; }
+
+
         public override string ToString()
         {
             return base.ToString() + " - Id: " + id + " (IdCounter: " + IdCounter + ")." +
@@ -109,5 +116,9 @@ namespace IntroductionToOop.Characters.Meele
             System.Console.WriteLine($"Read-only constant: id={warrior.id}");
         }
 
+        public void AddTwoNumbers()
+        {
+            System.Console.WriteLine(this.numberA + this.numberB);
+        }
     }
 }
