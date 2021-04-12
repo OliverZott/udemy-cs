@@ -15,6 +15,7 @@ namespace IntroductionToOop.Characters
         private Sword weapon;
         private int level;
         private Faction faction;
+        private double healthPoints;
 
 
         public Character(string name)
@@ -26,7 +27,17 @@ namespace IntroductionToOop.Characters
 
         // Properties
         public string Name { get; set; }
-        public int HealthPoints { get; set; }
+        public virtual double HealthPoints
+        {
+            get
+            {
+                return this.healthPoints;
+            }
+            set
+            {
+                this.healthPoints = value;
+            }
+        }
         public int Damage
         {
             get

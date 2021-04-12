@@ -53,18 +53,33 @@ namespace IntroductionToOop.Characters.Meele
             get { return id; }
             // set { id = value; }  // read-only field cannot be set from outside, only directly on field in class!
         }
-
+        public override double HealthPoints
+        {
+            get
+            {
+                return base.HealthPoints;
+            }
+            set
+            {
+                if (value >= 0 && value <= 120)
+                {
+                    base.HealthPoints = value;
+                }
+            }
+        }
 
         public override string ToString()
         {
-            return base.ToString() + " - Id: " + id + " / Name: " + this.Name + " (IdCounter: " + IdCounter + ").";
+            return base.ToString() + " - Id: " + id + " (IdCounter: " + IdCounter + ")." +
+                "\nName: " + this.Name +
+                "\nHealthPoints" + this.HealthPoints;
         }
 
 
         public void Greet(string name)
         {
-            System.Console.WriteLine($"{this.name} says \"Hello\" to {name}");
-            System.Console.WriteLine($"{Name} says \"Hello\" to {name}");         // PROPERTY or FIELD ??
+            // System.Console.WriteLine($"{this.name} says \"Hello\" to {name}");
+            System.Console.WriteLine($"{this.Name} says \"Hello\" to {name}");         // PROPERTY or FIELD ??
         }
 
         public override void MoveChar(int speed = DEFAULT_SPEED)
