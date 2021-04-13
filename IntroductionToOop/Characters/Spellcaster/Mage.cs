@@ -90,6 +90,12 @@ namespace IntroductionToOop.Characters.Spellcaster
         {
             throw new System.NotImplementedException();
         }
+
+        public override void AddTwoNumbers()
+        {
+            System.Console.WriteLine("Mage calculated: " + (base.NumberA + base.NumberB));
+        }
+
     }
 
 }

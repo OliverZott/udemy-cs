@@ -4,7 +4,7 @@ using IntroductionToOop.Enumerations;
 namespace IntroductionToOop.Characters.Meele
 
 {
-    public class Warrior : Character, IDoMath
+    public class Warrior : Character
     {
 
         private const int DEFAULT_DAMAGE = 10;
@@ -12,8 +12,6 @@ namespace IntroductionToOop.Characters.Meele
         private const int DEFAULT_SPEED = 1000;
 
         public readonly int id;
-        private int numberA;
-        private int numberB;
 
 
         // Constructor
@@ -71,8 +69,7 @@ namespace IntroductionToOop.Characters.Meele
             }
         }
 
-        public int NumberA { get => this.numberA; set => this.numberA = value; }
-        public int NumberB { get => this.numberB; set => this.numberB = value; }
+
 
 
         public override string ToString()
@@ -116,9 +113,10 @@ namespace IntroductionToOop.Characters.Meele
             System.Console.WriteLine($"Read-only constant: id={warrior.id}");
         }
 
-        public void AddTwoNumbers()
+        public override void AddTwoNumbers()
         {
-            System.Console.WriteLine(this.numberA + this.numberB);
+            System.Console.WriteLine("Hi, Warrior calculated: " + (base.NumberA * base.NumberB));
         }
+
     }
 }

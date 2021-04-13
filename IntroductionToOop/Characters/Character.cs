@@ -1,10 +1,11 @@
-﻿using IntroductionToOop.Enumerations;
+﻿using IntroductionToOop.Characters.Interfaces;
+using IntroductionToOop.Enumerations;
 using IntroductionToOop.Weapons.Sharp;
 using System.Threading;
 
 namespace IntroductionToOop.Characters
 {
-    public class Character
+    public abstract class Character : IDoMath
     {
 
         // Fields
@@ -16,7 +17,8 @@ namespace IntroductionToOop.Characters
         private int level;
         private Faction faction;
         private double healthPoints;
-
+        private int numberA;
+        private int numberB;
 
         public Character(string name)
         {
@@ -89,6 +91,11 @@ namespace IntroductionToOop.Characters
             }
         }
 
+
+        public int NumberA { get => this.numberA; set => this.numberA = value; }
+        public int NumberB { get => this.numberB; set => this.numberB = value; }
+
+
         // Methods
         public virtual void MoveChar(int speed)
         {
@@ -98,6 +105,8 @@ namespace IntroductionToOop.Characters
                 Thread.Sleep(speed);
             }
         }
+
+        public abstract void AddTwoNumbers();
 
     }
 
