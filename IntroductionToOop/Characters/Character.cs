@@ -5,7 +5,7 @@ using System.Threading;
 
 namespace IntroductionToOop.Characters
 {
-    public abstract class Character : IDoMath
+    public abstract class Character
     {
 
         // Fields
@@ -107,6 +107,11 @@ namespace IntroductionToOop.Characters
         }
 
         public abstract void AddTwoNumbers();
+
+        public void Greetings(string name)
+        {
+            System.Console.WriteLine($@"{this.Name} greets {name}");
+        }
 
     }
 

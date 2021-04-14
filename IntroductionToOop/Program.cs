@@ -1,4 +1,5 @@
 ﻿using IntroductionToOop.Characters;
+using IntroductionToOop.Characters.Interfaces;
 using IntroductionToOop.Characters.Meele;
 using IntroductionToOop.Characters.Spellcaster;
 using System.Collections.Generic;
@@ -16,8 +17,8 @@ namespace IntroductionToOop
             Warrior badGuy = new Warrior("John the bad warrior", 100, 5, Enumerations.Faction.BadGuy);
 
             System.Console.WriteLine(goodGuy.Level);
-            badGuy.MoveChar(200);
-            goodGuy.MoveChar();
+            //badGuy.MoveChar(200);
+            //goodGuy.MoveChar();
             System.Console.WriteLine(goodGuy);
 
 
@@ -32,6 +33,8 @@ namespace IntroductionToOop
             goodGuy.NumberB = 3;
             goodGuy.AddTwoNumbers();
 
+
+
             // Polymorphism example
             System.Console.WriteLine(" --------------------------- Polymorphism example --------------------------- ");
             Character dude1 = new Warrior("dude1");
@@ -39,7 +42,33 @@ namespace IntroductionToOop
             List<Character> characters = new();
             characters.Add(dude1);
             characters.Add(dude2);
-            characters.ForEach(i => System.Console.WriteLine(i));
+            characters.ForEach(i => System.Console.WriteLine(i.Name + " / " + i.GetType()));
+
+            foreach (Character character in characters)
+            {
+                if (character is Warrior)
+                {
+                    Warrior tempWarrior = (Warrior)character;
+                    System.Console.WriteLine(tempWarrior.GetType());
+                }
+            }
+
+            PerformGreeting(characters);
+
+
+
+            // IEnumerable Example
+            Character[] charactersArray = new Character[2];
+            charactersArray[0] = dude1;
+            charactersArray[1] = dude2;
+
+            PerformGreeting(charactersArray);       // Not working with 'List<Character>' in Method
+
+
+            List<IDoMath> mathList = new();
+            // mathList.Add(dude1);     // not working cause no function with IDoMath is inherited
+            mathList.Add(dude2);
+
 
 
             /*
@@ -71,6 +100,14 @@ namespace IntroductionToOop
             berserker.Attack(druid);
             */
 
+        }
+
+        public static void PerformGreeting(IEnumerable<Character> characters)
+        {
+            foreach (var item in characters)
+            {
+                item.Greetings("Olli");
+            }
         }
     }
 }

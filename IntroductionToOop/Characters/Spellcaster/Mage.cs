@@ -5,7 +5,7 @@ using IntroductionToOop.Weapons;
 
 namespace IntroductionToOop.Characters.Spellcaster
 {
-    class Mage : Character, ISpellcaster
+    class Mage : Character, ISpellcaster, IDoMath
     {
 
         private const int DEFAULT_DAMAGE = 10;
