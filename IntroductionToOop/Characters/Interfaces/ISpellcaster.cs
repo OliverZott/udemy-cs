@@ -1,4 +1,4 @@
-﻿using IntroductionToOop.Weapons.Sharp;
+﻿using IntroductionToOop.Weapons;
 
 namespace IntroductionToOop.Characters.Interfaces
 {
@@ -6,10 +6,10 @@ namespace IntroductionToOop.Characters.Interfaces
     {
 
         int ManaPoints { get; set; }
-        Sword Weapon { get; set; }
+        Spell MySpell { get; set; }
 
 
-        void SpellCast();
+        void SpellCast(Character character);
 
     }
 }

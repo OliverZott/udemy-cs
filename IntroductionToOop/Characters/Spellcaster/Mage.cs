@@ -1,6 +1,7 @@
 ﻿using IntroductionToOop.Characters.Interfaces;
 using IntroductionToOop.Characters.Meele;
 using IntroductionToOop.Enumerations;
+using IntroductionToOop.Weapons;
 
 namespace IntroductionToOop.Characters.Spellcaster
 {
@@ -52,6 +53,7 @@ namespace IntroductionToOop.Characters.Spellcaster
         }
 
         public int ManaPoints { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
+        public Spell MySpell { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
 
         public override string ToString()
         {
@@ -86,16 +88,16 @@ namespace IntroductionToOop.Characters.Spellcaster
             System.Console.WriteLine($"Read-only constant: id={warrior.id}");
         }
 
-        public void SpellCast()
-        {
-            throw new System.NotImplementedException();
-        }
-
         public override void AddTwoNumbers()
         {
             System.Console.WriteLine("Mage calculated: " + (base.NumberA + base.NumberB));
         }
 
+        public void SpellCast(Character character)
+        {
+            character.HealthPoints -= this.MySpell.Damage;
+
+        }
     }
 
 }

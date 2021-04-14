@@ -1,4 +1,7 @@
-﻿using IntroductionToOop.Characters.Meele;
+﻿using IntroductionToOop.Characters;
+using IntroductionToOop.Characters.Meele;
+using IntroductionToOop.Characters.Spellcaster;
+using System.Collections.Generic;
 
 namespace IntroductionToOop
 {
@@ -7,6 +10,8 @@ namespace IntroductionToOop
         static void Main(string[] args)
         {
 
+            // Interface and enum example
+            System.Console.WriteLine(" --------------------------- Interface and enum example --------------------------- ");
             Warrior goodGuy = new Warrior("Bob the good guy", 119, 5, Enumerations.Faction.GoodGuy);
             Warrior badGuy = new Warrior("John the bad warrior", 100, 5, Enumerations.Faction.BadGuy);
 
@@ -14,6 +19,27 @@ namespace IntroductionToOop
             badGuy.MoveChar(200);
             goodGuy.MoveChar();
             System.Console.WriteLine(goodGuy);
+
+
+
+            //  Abstract class
+            System.Console.WriteLine(" --------------------------- Abstract class example --------------------------- ");
+            Mage dura = new("Dura");
+            dura.NumberA = 2;
+            dura.NumberB = 3;
+            dura.AddTwoNumbers();
+            goodGuy.NumberA = 2;
+            goodGuy.NumberB = 3;
+            goodGuy.AddTwoNumbers();
+
+            // Polymorphism example
+            System.Console.WriteLine(" --------------------------- Polymorphism example --------------------------- ");
+            Character dude1 = new Warrior("dude1");
+            Mage dude2 = new("dude2");
+            List<Character> characters = new();
+            characters.Add(dude1);
+            characters.Add(dude2);
+            characters.ForEach(i => System.Console.WriteLine(i));
 
 
             /*
